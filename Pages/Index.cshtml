@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<div class="text-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        
+        <h1 class="display-4">Welcome to PitShop, @UserManager.GetUserName(User)!</h1>
+        <p>Book your next car servicing here.</p>
+    }
+    else
+    {
+        <h1 class="display-4">Welcome to PitShop!</h1>
+        <p>Book your next car servicing here.</p>
+    }
+</div>
