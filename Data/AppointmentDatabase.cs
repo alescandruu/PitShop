@@ -1,10 +1,11 @@
-﻿using Pitshop.Models;
-using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
+using System.Threading.Tasks;
+using Pitshop.Models;       
 
 namespace Pitshop.Data
 {

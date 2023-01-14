@@ -11,40 +11,41 @@
         BackgroundColor="Black" />
             <StackLayout Orientation="Horizontal">
                 <Label Text="Username" />
-                <Entry x:Name="usernameEntry" Text="{Binding Username}"/>
+                <Entry x:Name="usernameEntry"/>
             </StackLayout>
+        
             <StackLayout Orientation="Horizontal">
                 <Label Text="Brand" />
-                <Entry x:Name="brandEntry" Text="{Binding Brand}"/>
+                <Entry x:Name="brandEntry"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Model" />
-                <Entry x:Name="modelEntry" Text="{Binding Model}"/>
+                <Entry x:Name="modelEntry"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Production Date" />
-                <DatePicker x:Name="productionDatePicker" Date="{Binding ProductionDate}"/>
+                <DatePicker x:Name="productionDatePicker"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Engine Capacity" />
-                <Entry x:Name="engineCapacityEntry" Text="{Binding EngineCapacity}"/>
+                <Entry x:Name="engineCapacityEntry"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fuel" />
-                <Entry x:Name="fuelEntry" Text="{Binding Fuel}"/>
+                <Entry x:Name="fuelEntry"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Power" />
-                <Entry x:Name="powerEntry" Text="{Binding Power}"/>
+                <Entry x:Name="powerEntry"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Date" />
-                <DatePicker x:Name="datePicker" Date="{Binding Date}"/>
+                <DatePicker x:Name="datePicker"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Description" />
-                <Editor x:Name="descriptionEditor" Text="{Binding Description}"/>
+                <Editor x:Name="descriptionEditor"/>
             </StackLayout>
         <Button Text="Make Appointment"
             Clicked="OnMakeAppointmentButtonClicked" 

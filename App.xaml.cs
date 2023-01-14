@@ -29,7 +29,7 @@ public partial class App : Application {
     {
         get
         {
-            if (database == null)
+            if (appointmentdatabase == null)
             {
                 appointmentdatabase = new
                AppointmentDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.

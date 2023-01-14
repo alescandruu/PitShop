@@ -12,9 +12,9 @@ public partial class Welcome : ContentPage
         await Navigation.PushModalAsync(new MakeAppointmentPage());
     }
 
-    private async void OnPreviousAppointmentsButtonClicked(object sender, EventArgs e)
+    private async void OnCurrentAppointmentsButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new PreviousAppointmentsPage());
+        await Navigation.PushModalAsync(new CurrentAppointmentsPage());
     }
 
     private async void OnNotificationsButtonClicked(object sender, EventArgs e)

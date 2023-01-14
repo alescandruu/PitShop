@@ -20,7 +20,7 @@
     <MauiXaml Update="Pages\NotificationsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\PreviousAppointmentsPage.xaml">
+    <MauiXaml Update="Pages\CurrentAppointmentsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\Register.xaml">
