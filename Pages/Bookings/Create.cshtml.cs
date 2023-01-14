@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,9 +24,9 @@ namespace PitShop.Pages.Bookings
 
         public IActionResult OnGet()
         {
-        ViewData["CarId"] = new SelectList(_context.Car, "Id", "Id");
-        ViewData["MechanicId"] = new SelectList(_context.Mechanic, "Id", "Id");
-            return Page();
+            ViewData["CarId"] = new SelectList(_context.Car, "Id", "Id");
+            ViewData["MechanicId"] = new SelectList(_context.Mechanic, "Id", "Id");
+                return Page();
         }
 
         [BindProperty]

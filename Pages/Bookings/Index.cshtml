@@ -2,14 +2,11 @@
 @model PitShop.Pages.Bookings.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bookings";
 }
 
-<h1>Index</h1>
+<h1>Your Bookings</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -44,9 +41,16 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> 
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    @{
+                        DateTime now = DateTime.Today;
+                        if (item.Date >= now)
+                        {
+                            <a asp-page="">Review</a> 
+                        }
+                    }
             </td>
         </tr>
 }

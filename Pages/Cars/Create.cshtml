@@ -1,6 +1,8 @@
 ﻿@page
 @model PitShop.Pages.Cars.CreateModel
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
     ViewData["Title"] = "Create";
 }
@@ -13,6 +15,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Car.UserId" class="form-control" value="@UserManager.GetUserId(User)" />
             <div class="form-group">
                 <label asp-for="Car.Brand" class="control-label"></label>
                 <input asp-for="Car.Brand" class="form-control" />
@@ -35,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Car.Fuel" class="control-label"></label>
-                <input asp-for="Car.Fuel" class="form-control" />
+                <input asp-for="Car.Fuel" class="form-control"/>
                 <span asp-validation-for="Car.Fuel" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PitShop.Data;
 
@@ -11,9 +12,10 @@ using PitShop.Data;
 namespace PitShop.Migrations
 {
     [DbContext(typeof(PitShopContext))]
-    partial class PitShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230114103744_mkmk")]
+    partial class mkmk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,10 +44,6 @@ namespace PitShop.Migrations
 
                     b.Property<int?>("MechanicId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
