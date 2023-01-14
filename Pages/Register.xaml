@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pitshop.Pages.Register"
+             Title="Register"
+             >
+    <StackLayout>
+        <Button Text="Login"
+        Clicked="LoginButtonClicked"
+        CornerRadius="0"
+        BackgroundColor="Black" />
+        <Entry Placeholder="Username"
+           x:Name="Username" />
+        <Entry Placeholder="Email"
+           x:Name="Email" />
+        <Entry Placeholder="Password"
+           x:Name="Password" IsPassword="True"/>
+        <Button Text="Register"
+        Clicked="RegisterButtonClicked"
+        CornerRadius="0"
+        BackgroundColor="Black" />
+    </StackLayout>
+</ContentPage>

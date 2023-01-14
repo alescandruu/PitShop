@@ -1,3 +1,6 @@
+using Pitshop.Models;
+using PitShop.Models;
+
 namespace Pitshop.Pages;
 
 public partial class MakeAppointmentPage : ContentPage
@@ -9,18 +12,29 @@ public partial class MakeAppointmentPage : ContentPage
 
     private async void OnMakeAppointmentButtonClicked(object sender, EventArgs e)
     {
-        string name = NameField.Text;
-        string email = EmailField.Text;
-        string plate = PlateField.Text;
-        string car_model = CarModelField.Text;
-        string issue = IssueField.Text;
-        DateTime date = DateField.Date;
-        TimeSpan time = TimeField.Time;
+        var slist = new Appointment();
+        var car = new Car();
 
-        // Send an email with the appointment details
-        // ...
+        slist.Username = usernameEntry.Text;
 
-        await DisplayAlert("Success", "Appointment made!", "OK");
+        car.Brand = brandEntry.Text;
+        car.Model = modelEntry.Text;
+        car.ProductionDate = productionDatePicker.Date;
+        car.EngineCapacity = Int32.Parse(engineCapacityEntry.Text);
+        car.Fuel = fuelEntry.Text;
+        car.Power= Int32.Parse(powerEntry.Text);
+
+        var names = new List<string>() { "Aurel Vlaicu", "Crutoi Alexandru", "Daniliuc Alexandru"};
+        var random = new Random();
+        int randomIndex = random.Next(names.Count);
+        slist.Mechanic= names[randomIndex];
+
+        slist.Date = datePicker.Date;
+        slist.Description = descriptionEditor.Text;
+
+        await App.AppointmentDatabase.SaveAppointmentAsync(slist);
+
+        await Navigation.PushModalAsync(new NotificationsPage());
     }
 
     private async void HomeButtonClicked(object sender, EventArgs e)

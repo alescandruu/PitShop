@@ -4,32 +4,48 @@
              x:Class="Pitshop.Pages.MakeAppointmentPage"
              Title="MakeAppointmentPage"
              >
-    <ContentPage.Resources>
-        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Red" />
-        </Style>
-        <Style x:Key="ValidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Green" />
-        </Style>
-    </ContentPage.Resources>
     <StackLayout>
         <Button Text="Home"
         Clicked="HomeButtonClicked"
         CornerRadius="0"
         BackgroundColor="Black" />
-        <Entry Placeholder="Name"
-           x:Name="NameField" />
-        <Entry Placeholder="Email"
-               x:Name="EmailField">
-        </Entry>
-        <Entry Placeholder="Plate"
-           x:Name="PlateField" MaxLength="7"/>
-        <Entry Placeholder="Car Model"
-           x:Name="CarModelField" />
-        <Entry Placeholder="Issue"
-           x:Name="IssueField" />
-        <DatePicker x:Name="DateField" />
-        <TimePicker x:Name="TimeField" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Username" />
+                <Entry x:Name="usernameEntry" Text="{Binding Username}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Brand" />
+                <Entry x:Name="brandEntry" Text="{Binding Brand}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Model" />
+                <Entry x:Name="modelEntry" Text="{Binding Model}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Production Date" />
+                <DatePicker x:Name="productionDatePicker" Date="{Binding ProductionDate}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Engine Capacity" />
+                <Entry x:Name="engineCapacityEntry" Text="{Binding EngineCapacity}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fuel" />
+                <Entry x:Name="fuelEntry" Text="{Binding Fuel}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Power" />
+                <Entry x:Name="powerEntry" Text="{Binding Power}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Date" />
+                <DatePicker x:Name="datePicker" Date="{Binding Date}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Description" />
+                <Editor x:Name="descriptionEditor" Text="{Binding Description}"/>
+            </StackLayout>
         <Button Text="Make Appointment"
             Clicked="OnMakeAppointmentButtonClicked" 
             CornerRadius="0"

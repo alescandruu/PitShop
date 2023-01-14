@@ -6,8 +6,16 @@
     <StackLayout>
         <Button Text="Home" Clicked="HomeButtonClicked" CornerRadius="0"
         BackgroundColor="Black"/>
-        <Label Text="No notifications at this time"
-           HorizontalTextAlignment="Center"
-           VerticalTextAlignment="Center" />
+        <ListView x:Name="listView"
+ Margin="20"
+ ItemSelected="OnListViewItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Description}"
+ Detail="{Binding Date}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </StackLayout>
 </ContentPage>

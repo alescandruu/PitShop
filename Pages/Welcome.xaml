@@ -17,5 +17,8 @@
         <Button Text="Notifications"
         Clicked="OnNotificationsButtonClicked" CornerRadius="0"
         BackgroundColor="Black"/>
+        <Button Text="Logout"
+        Clicked="OnLogoutButtonClicked" CornerRadius="0"
+        BackgroundColor="Red"/>
     </StackLayout>
 </ContentPage>

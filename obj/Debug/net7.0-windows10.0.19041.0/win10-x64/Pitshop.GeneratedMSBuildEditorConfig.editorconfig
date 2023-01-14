@@ -16,6 +16,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Pitshop.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
+[C:/Users/ACrutoi/SCHOOL/PitShop/Pages/Login.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Pitshop.Pages.Login.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Login.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Login.xaml
+
 [C:/Users/ACrutoi/SCHOOL/PitShop/Pages/MakeAppointmentPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Pitshop.Pages.MakeAppointmentPage.xaml
@@ -33,6 +39,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Pitshop.Pages.PreviousAppointmentsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\PreviousAppointmentsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\PreviousAppointmentsPage.xaml
+
+[C:/Users/ACrutoi/SCHOOL/PitShop/Pages/Register.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Pitshop.Pages.Register.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Register.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Register.xaml
 
 [C:/Users/ACrutoi/SCHOOL/PitShop/Pages/Welcome.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

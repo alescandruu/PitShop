@@ -21,4 +21,9 @@ public partial class Welcome : ContentPage
     {
         await Navigation.PushModalAsync(new NotificationsPage());
     }
+
+    private async void OnLogoutButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new Login());
+    }
 }
