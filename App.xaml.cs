@@ -39,6 +39,22 @@ public partial class App : Application {
         }
     }
 
+    static NotificationDatabase notificationdatabase;
+
+    public static NotificationDatabase NotificationDatabase
+    {
+        get
+        {
+            if (notificationdatabase == null)
+            {
+                notificationdatabase = new
+               NotificationDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.
+               LocalApplicationData), "Notification.db3"));
+            }
+            return notificationdatabase;
+        }
+    }
+
     public App()
 	{
 		InitializeComponent();

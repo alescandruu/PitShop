@@ -10,42 +10,52 @@
         CornerRadius="0"
         BackgroundColor="Black" />
             <StackLayout Orientation="Horizontal">
-                <Label Text="Username" />
-                <Entry x:Name="usernameEntry"/>
+                <Label Text="Nume Prenume: " />
+                <Entry x:Name="usernameEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         
             <StackLayout Orientation="Horizontal">
-                <Label Text="Brand" />
-                <Entry x:Name="brandEntry"/>
+                <Label Text="Brand: " />
+                <Entry x:Name="brandEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Model" />
-                <Entry x:Name="modelEntry"/>
+                <Label Text="Model: " />
+                <Entry x:Name="modelEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Production Date" />
-                <DatePicker x:Name="productionDatePicker"/>
+                <Label Text="Production Date: " />
+                <DatePicker x:Name="productionDatePicker"
+                            HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Engine Capacity" />
-                <Entry x:Name="engineCapacityEntry"/>
+                <Label Text="Engine Capacity: " />
+                <Entry x:Name="engineCapacityEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Fuel" />
-                <Entry x:Name="fuelEntry"/>
+                <Label Text="Fuel: " />
+                <Entry x:Name="fuelEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Power" />
-                <Entry x:Name="powerEntry"/>
+                <Label Text="Power: " />
+                <Entry x:Name="powerEntry"
+                       HorizontalOptions="FillAndExpand"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Date" />
-                <DatePicker x:Name="datePicker"/>
+                <Label Text="Date: " />
+                <DatePicker x:Name="datePicker"
+                            HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Description" />
-                <Editor x:Name="descriptionEditor"/>
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Description: " />
+                <Editor x:Name="descriptionEditor"
+                        HorizontalOptions="FillAndExpand"
+                        />
             </StackLayout>
         <Button Text="Make Appointment"
             Clicked="OnMakeAppointmentButtonClicked" 

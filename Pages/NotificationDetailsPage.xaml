@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pitshop.Pages.NotificationDetailsPage"
+             Title="NotificationDetailsPage">
+    <VerticalStackLayout >
+        <Button Text="Back" Clicked="OnBackButtonClicked" CornerRadius="0"
+        BackgroundColor="Black"
+                Margin="0,0,0,20"/>
+        <Label Text="{Binding Username}" 
+                           VerticalOptions="CenterAndExpand"
+               Margin="10,0,0,10"/>
+        <Label Text="{Binding FullCarName}" 
+                           VerticalOptions="CenterAndExpand" 
+                           Margin="10,0,0,10"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Data programare: " 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="10,0,0,10"/>
+            <Label Text="{Binding Date}" 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="0,0,0,10"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Data notificare: " 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="10,0,0,10"/>
+            <Label Text="{Binding SendDate}" 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="0,0,0,10"/>
+        </StackLayout>
+        <Label Text="{Binding Description}" 
+                           VerticalOptions="CenterAndExpand" 
+                           Margin="10,0,0,10"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Distanta km: " 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="10,0,0,10"/>
+            <Label Text="{Binding Distance}" 
+                           VerticalOptions="CenterAndExpand"
+                                   Margin="0,0,0,10"/>
+        </StackLayout>
+        <Button Text="See location" Clicked="OnLocationButtonClicked" CornerRadius="0"
+        BackgroundColor="Black"
+                Margin="0,0,0,20"/>
+    </VerticalStackLayout>
+</ContentPage>

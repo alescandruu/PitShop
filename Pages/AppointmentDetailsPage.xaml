@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pitshop.Pages.AppointmentDetailsPage"
+             Title="AppointmentDetailsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Appointment"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Button Text="Back" Clicked="OnBackButtonClicked" CornerRadius="0"
+        BackgroundColor="Black"
+                Margin="0,0,0,20"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Username: " />
+            <Label Text="{Binding Username}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Brand: " />
+            <Label Text="{Binding Brand}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Model: " />
+            <Label Text="{Binding Model}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Production Date: " />
+            <Label Text="{Binding ProductionDate}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Engine Capacity: " />
+            <Label Text="{Binding EngineCapacity}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Fuel: " />
+            <Label Text="{Binding Fuel}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Power: " />
+            <Label Text="{Binding Power}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Mechanic: " />
+            <Label Text="{Binding Mechanic}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Date: " />
+            <Label Text="{Binding Date}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Description: " />
+            <Label Text="{Binding Description}" />
+        </StackLayout>
+        <Button Text="Delete"
+        Clicked="OnDeleteButtonClicked"
+        CornerRadius="0"
+                Margin="0,20,0,0"
+        BackgroundColor="Red"
+        HorizontalOptions="Fill"/>
+    </StackLayout>
+</ContentPage>

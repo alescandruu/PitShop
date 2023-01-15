@@ -8,7 +8,8 @@
         BackgroundColor="Black"/>
         <ListView x:Name="listView"
  Margin="20"
- ItemSelected="OnListViewItemSelected">
+ ItemSelected="OnListViewItemSelected"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -23,14 +24,6 @@
                             <Label Text="{Binding Date}" 
                            VerticalOptions="CenterAndExpand" 
                            Margin="10,0,0,0"/>
-                            <Button Text="Details"
-        Clicked="OnDetailsButtonClicked"
-        CornerRadius="0"
-        BackgroundColor="Gray" />
-                            <Button Text="Delete"
-        Clicked="OnDeleteButtonClicked"
-        CornerRadius="0"
-        BackgroundColor="Red" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

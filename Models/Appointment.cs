@@ -1,5 +1,4 @@
-﻿using PitShop.Models;
-using SQLite;
+﻿using SQLite;
 using System.ComponentModel.DataAnnotations;
 
 namespace Pitshop.Models
