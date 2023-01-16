@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PitShop.Data;
 
@@ -11,9 +12,10 @@ using PitShop.Data;
 namespace PitShop.Migrations
 {
     [DbContext(typeof(PitShopContext))]
-    partial class PitShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230114182721_ReviewsUpdate")]
+    partial class ReviewsUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,9 +44,6 @@ namespace PitShop.Migrations
 
                     b.Property<int?>("MechanicId")
                         .HasColumnType("int");
-
-                    b.Property<string>("MechanicName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -107,8 +106,7 @@ namespace PitShop.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -116,8 +114,7 @@ namespace PitShop.Migrations
 
                     b.Property<string>("Secondname")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -133,18 +130,18 @@ namespace PitShop.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BookingDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("BookingId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MechanicId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MechanicId1")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReviewDescription")
+                    b.Property<string>("MechanicName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -153,10 +150,6 @@ namespace PitShop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookingId");
-
-                    b.HasIndex("MechanicId1");
 
                     b.ToTable("Review");
                 });
@@ -172,21 +165,6 @@ namespace PitShop.Migrations
                         .HasForeignKey("MechanicId");
 
                     b.Navigation("Car");
-
-                    b.Navigation("Mechanic");
-                });
-
-            modelBuilder.Entity("PitShop.Models.Review", b =>
-                {
-                    b.HasOne("PitShop.Models.Booking", "Booking")
-                        .WithMany()
-                        .HasForeignKey("BookingId");
-
-                    b.HasOne("PitShop.Models.Mechanic", "Mechanic")
-                        .WithMany()
-                        .HasForeignKey("MechanicId1");
-
-                    b.Navigation("Booking");
 
                     b.Navigation("Mechanic");
                 });

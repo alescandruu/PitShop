@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using PitShop.Data;
 using PitShop.Models;
 
-namespace PitShop.Pages.Bookings
+namespace PitShop.Pages.Reviews
 {
     public class EditModel : PageModel
     {
@@ -21,23 +21,22 @@ namespace PitShop.Pages.Bookings
         }
 
         [BindProperty]
-        public Booking Booking { get; set; } = default!;
+        public Review Review { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Booking == null)
+            if (id == null || _context.Review == null)
             {
                 return NotFound();
             }
 
-            var booking =  await _context.Booking.FirstOrDefaultAsync(m => m.Id == id);
-            if (booking == null)
+            var review =  await _context.Review.FirstOrDefaultAsync(m => m.Id == id);
+            if (review == null)
             {
                 return NotFound();
             }
-            Booking = booking;
-           ViewData["CarId"] = new SelectList(_context.Car, "Id", "Id");
-           ViewData["MechanicName"] = new SelectList(_context.Mechanic, "FullName", "FullName");
+            Review = review;
+           ViewData["MechanicId"] = new SelectList(_context.Mechanic, "Id", "Id");
             return Page();
         }
 
@@ -50,7 +49,7 @@ namespace PitShop.Pages.Bookings
                 return Page();
             }
 
-            _context.Attach(Booking).State = EntityState.Modified;
+            _context.Attach(Review).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace PitShop.Pages.Bookings
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookingExists(Booking.Id))
+                if (!ReviewExists(Review.Id))
                 {
                     return NotFound();
                 }
@@ -71,9 +70,9 @@ namespace PitShop.Pages.Bookings
             return RedirectToPage("./Index");
         }
 
-        private bool BookingExists(int id)
+        private bool ReviewExists(int id)
         {
-          return _context.Booking.Any(e => e.Id == id);
+          return _context.Review.Any(e => e.Id == id);
         }
     }
 }

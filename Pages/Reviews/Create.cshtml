@@ -1,0 +1,52 @@
+﻿@page
+@model PitShop.Pages.Reviews.CreateModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    var mechanicName = HttpContext.Request.Query["mechanicName"].ToString();
+    var mechanicTask = HttpContext.Request.Query["mechanicTask"].ToString();
+    var user = await UserManager.GetUserAsync(User);
+    var userEmail = user.Email;
+}
+
+<h1>Create</h1>
+
+<h4>Review</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Review.UserId" class="form-control" value="@userEmail" />
+            <div class="form-group">
+                <label asp-for="Review.MechanicId" class="control-label">Mechanic</label>
+                <input asp-for="Review.MechanicId" class="form-control" value="@mechanicName" readonly/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.BookingDescription" class="control-label">Booking Task</label>
+                <input asp-for="Review.BookingDescription" class="form-control" value="@mechanicTask" readonly/>
+                <span asp-validation-for="Review.BookingDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review.ReviewDescription" class="control-label">Review</label>
+                <input asp-for="Review.ReviewDescription" class="form-control" />
+                <span asp-validation-for="Review.ReviewDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

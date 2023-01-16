@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PitShop.Data;
 
@@ -11,9 +12,10 @@ using PitShop.Data;
 namespace PitShop.Migrations
 {
     [DbContext(typeof(PitShopContext))]
-    partial class PitShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230116112626_BookingUpdates4")]
+    partial class BookingUpdates4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,8 +109,7 @@ namespace PitShop.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -116,8 +117,7 @@ namespace PitShop.Migrations
 
                     b.Property<string>("Secondname")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -138,10 +138,7 @@ namespace PitShop.Migrations
                     b.Property<int?>("BookingId")
                         .HasColumnType("int");
 
-                    b.Property<string>("MechanicId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MechanicId1")
+                    b.Property<int?>("MechanicId")
                         .HasColumnType("int");
 
                     b.Property<string>("ReviewDescription")
@@ -156,7 +153,7 @@ namespace PitShop.Migrations
 
                     b.HasIndex("BookingId");
 
-                    b.HasIndex("MechanicId1");
+                    b.HasIndex("MechanicId");
 
                     b.ToTable("Review");
                 });
@@ -184,7 +181,7 @@ namespace PitShop.Migrations
 
                     b.HasOne("PitShop.Models.Mechanic", "Mechanic")
                         .WithMany()
-                        .HasForeignKey("MechanicId1");
+                        .HasForeignKey("MechanicId");
 
                     b.Navigation("Booking");
 

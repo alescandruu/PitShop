@@ -1,0 +1,51 @@
+﻿@page
+@model PitShop.Pages.Reviews.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Reviews</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Mechanic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].BookingDescription)
+            </th>
+            <th>
+                Review
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Review) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MechanicId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

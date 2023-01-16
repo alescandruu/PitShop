@@ -6,7 +6,7 @@
         public String UserId { get; set; }
         public int? CarId { get; set; }
         public Car? Car { get; set; }
-        public int? MechanicId { get; set; }
+        public string? MechanicName { get; set; }
         public Mechanic? Mechanic { get; set; }
         public DateTime Date { get; set; }
         public string Description{ get; set; }

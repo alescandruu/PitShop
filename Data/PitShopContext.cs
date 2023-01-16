@@ -19,5 +19,7 @@ namespace PitShop.Data
         public DbSet<PitShop.Models.Mechanic> Mechanic { get; set; }
 
         public DbSet<PitShop.Models.Booking> Booking { get; set; }
+
+        public DbSet<PitShop.Models.Review> Review { get; set; }
     }
 }

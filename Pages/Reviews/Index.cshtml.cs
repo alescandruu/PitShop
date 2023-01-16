@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PitShop.Data;
 using PitShop.Models;
 
-namespace PitShop.Pages.Bookings
+namespace PitShop.Pages.Reviews
 {
     public class IndexModel : PageModel
     {
@@ -21,14 +19,14 @@ namespace PitShop.Pages.Bookings
             _context = context;
         }
 
-        public IList<Booking> Booking { get;set; } = default!;
+        public IList<Review> Review { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Booking != null)
+            if (_context.Review != null)
             {
-                Booking = await _context.Booking
-                .Include(b => b.Car).ToListAsync();
+                Review = await _context.Review
+                .Include(r => r.Mechanic).ToListAsync();
             }
         }
     }

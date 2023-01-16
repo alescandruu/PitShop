@@ -6,24 +6,26 @@
 @{
     ViewData["Title"] = "Create";
 }
+@{
+    var urlValue = HttpContext.Request.Query["id"].ToString();
+    var carId = Int32.Parse(urlValue);
+    var carName = HttpContext.Request.Query["carName"].ToString();
+}
 
 <h1>Create</h1>
 
-<h4>Booking</h4>
+<h4>Booking - @carName</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @{
-                var urlValue = HttpContext.Request.Query["id"].ToString();
-                var carId = Int32.Parse(urlValue);
-            }
             <input type="hidden" asp-for="Booking.UserId" class="form-control" value="@UserManager.GetUserId(User)" />
-            <input type="hidden" asp-for="Booking.CarId" class="form-control" value=@carId>
+            <input type="hidden" asp-for="Booking.CarId" class="form-control" value="@carId" />
             <div class="form-group">
-                <label asp-for="Booking.MechanicId" class="control-label"></label>
-                <select asp-for="Booking.MechanicId" class ="form-control" asp-items="ViewBag.MechanicId"></select>
+                <label asp-for="Booking.MechanicName" class="control-label"></label>
+                <select asp-for="Booking.MechanicName" class="form-control" asp-items="ViewBag.MechanicName"></select>
+                <span asp-validation-for="Booking.MechanicName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.Date" class="control-label"></label>

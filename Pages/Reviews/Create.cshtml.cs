@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using PitShop.Data;
 using PitShop.Models;
 
-namespace PitShop.Pages.Bookings
+namespace PitShop.Pages.Reviews
 {
     public class CreateModel : PageModel
     {
@@ -21,13 +21,12 @@ namespace PitShop.Pages.Bookings
 
         public IActionResult OnGet()
         {
-            ViewData["CarId"] = new SelectList(_context.Car, "Id", "Id");
-            ViewData["MechanicName"] = new SelectList(_context.Mechanic, "FullName", "FullName");
+        ViewData["MechanicId"] = new SelectList(_context.Mechanic, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Booking Booking { get; set; }
+        public Review Review { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -38,7 +37,7 @@ namespace PitShop.Pages.Bookings
                 return Page();
             }
 
-            _context.Booking.Add(Booking);
+            _context.Review.Add(Review);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -1,8 +1,10 @@
 ﻿@page
 @model PitShop.Pages.Bookings.IndexModel
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @{
-    ViewData["Title"] = "Bookings";
+    ViewData["Title"] = "Index";
 }
 
 <h1>Your Bookings</h1>
@@ -26,33 +28,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Booking) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Car.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mechanic.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> 
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    @{
-                        DateTime now = DateTime.Today;
-                        if (item.Date >= now)
-                        {
-                            <a asp-page="">Review</a> 
-                        }
-                    }
-            </td>
-        </tr>
+        @{
+    var userId = UserManager.GetUserId(User);
+    foreach (var item in Model.Booking) {
+         if (item.UserId == userId) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Car.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MechanicName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                            <a asp-page="./Details" asp-route-id="@item.Id" asp-route-carName="@item.Car.FullName">Details</a> 
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                            @{
+                                DateTime today = DateTime.Now;
+                                if(item.Date < today) {
+                                    <a asp-page="../Reviews/Create" asp-route-mechanicName="@item.MechanicName" asp-route-mechanicTask="@item.Description">Review</a>
+                                }
+                            }
+                        </td>
+                    </tr>
+         }
+    }
 }
     </tbody>
 </table>

@@ -1,8 +1,6 @@
 ﻿@page
 @model PitShop.Pages.Bookings.EditModel
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "Edit";
 }
@@ -16,16 +14,12 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Booking.Id" />
-            <input type="hidden" asp-for="Booking.UserId" class="form-control" value="@UserManager.GetUserId(User)" />
+            <input type="hidden" asp-for="Booking.UserId" class="form-control" />
+            <input type="hidden" asp-for="Booking.CarId" class="form-control" />
             <div class="form-group">
-                <label asp-for="Booking.CarId" class="control-label"></label>
-                <select asp-for="Booking.CarId" class="form-control" asp-items="ViewBag.CarId"></select>
-                <span asp-validation-for="Booking.CarId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Booking.MechanicId" class="control-label"></label>
-                <select asp-for="Booking.MechanicId" class="form-control" asp-items="ViewBag.MechanicId"></select>
-                <span asp-validation-for="Booking.MechanicId" class="text-danger"></span>
+                <label asp-for="Booking.MechanicName" class="control-label">Mechanic</label>
+                <select asp-for="Booking.MechanicName" class="form-control" asp-items="ViewBag.MechanicName"></select>
+                <span asp-validation-for="Booking.MechanicName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.Date" class="control-label"></label>
